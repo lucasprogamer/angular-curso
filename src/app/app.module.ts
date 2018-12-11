@@ -10,9 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { OperadorElvisComponent } from './operador-elvis/operador-elvis.component';
 import { ExemploNgContentComponent } from './exemplo-ng-content/exemplo-ng-content.component';
 import { FundoAmareloDirective } from './shared/fundo-amarelo.directive';
-import { CustomizadasComponent } from './diretivas/customizadas/customizadas.component';
 import { DiretivasCustomizadasComponent } from './diretivas-customizadas/diretivas-customizadas.component';
-import { SharedDirective } from './shared.directive';
+import { HighlightDirectiveDirective } from './shared/highlight-directive.directive';
+import { HighlightDirective } from './shared/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,9 @@ import { SharedDirective } from './shared.directive';
     OperadorElvisComponent,
     ExemploNgContentComponent,
     FundoAmareloDirective,
-    CustomizadasComponent,
     DiretivasCustomizadasComponent,
-    SharedDirective
+    HighlightDirectiveDirective,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
