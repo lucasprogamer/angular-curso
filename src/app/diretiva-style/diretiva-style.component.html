@@ -1,0 +1,32 @@
+<h2 class="title">Styles</h2>
+
+
+<button class="btn mb-5"
+[style.background]="ativo ? 'blue' : 'gray'"
+[style.color]="ativo ? 'white' : 'black'"
+[style.fontWeight]="ativo ? 'bold' : 'normal'"
+[style.fontSize]=" fz+'px'"
+
+(click)="mudarAtivo()"
+
+>
+
+  Mudar Button
+</button>
+<br>
+<input class="mb-5" type="number" [(ngModel)]="fz">
+
+<br>
+<button class="btn mb-5"
+[ngStyle]="{
+  'background': ativo ? 'blue' : 'gray',
+  'color': ativo ? 'white' : 'black',
+  'fontWeight': ativo ? 'bold' : 'normal',
+  'fontSize': fz+'px'
+}"
+
+(click)="mudarAtivo()"
+>
+
+  Mudar Button
+</button>

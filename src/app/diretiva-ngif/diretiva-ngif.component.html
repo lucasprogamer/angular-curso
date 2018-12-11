@@ -1,0 +1,17 @@
+<h3 class="title">Removendo o *</h3>
+
+
+<div class="col-md-12 mb-5">
+
+    <div class="card" *ngIf="mostrarCursos">
+      Lista de cursos aqui.
+    </div>
+
+</div>
+
+<div template="ngIf mostrarCursos">
+    <div>Lista de cursos</div>
+</div>
+
+
+  <button (click)="onMostrarCursos()" class="btn btn-primary"> Mostrar cursos</button>
