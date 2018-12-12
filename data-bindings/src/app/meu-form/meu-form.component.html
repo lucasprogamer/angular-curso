@@ -1,0 +1,77 @@
+<section class="property-biding">
+
+  <article>
+    <h3>Interpolação</h3>
+    <p>String:  <a href="{{ url }}">{{ url }}</a></p>
+    <p> Resultado de soma: {{ 1 + 1 }}</p>
+    <p> Resultado de soma: {{ 1 + 1 + getValor() }}</p>
+    <p> Curtir Curso: {{ cursoAngular && curtirCurso() }}</p>
+
+  </article>
+  <article>
+    <h3>property biding</h3>
+      <img src="{{ urlImagem }}">
+      <img [src]="urlImagem">
+
+  </article>
+
+    <article>
+      <h3>class and styles</h3>
+       <div>
+         Selecione uma Classe:
+         <select #classe (change)="0">
+           <option value="alert-success">Sucesso</option>
+           <option value="alert-danger">Danger</option>
+           <option value="alert-info">Info</option>
+           <option value="alert-warning">Alert</option>
+         </select>
+       </div>
+
+       <div class="alert {{ classe.value }}">hellow</div>
+    </article>
+
+      <article>
+        <h3>Event binding</h3>
+        <div>
+          <button (click)="btnClick()" class="btn btn-primary">Clique</button>
+            <br />
+            <br>
+            <input type="text"
+              (keyup)="onKeyUp($event)"
+              (keyup.enter)="salvarValor(campoinput.value)"
+              #campoinput
+              >
+            <br />
+            <br />
+              valor: {{ valor }} <br />
+              valor salvo: {{ valorSalvo }}
+
+              <br>
+
+              <span
+              (mouseover)="onMouseOverOut()"
+              (mouseout)="onMouseOverOut()"
+              [class.highlight]="isMouseOver"
+              >Olá</span>
+
+              <br>
+
+              <input type="text"
+                    [value]="nome"
+                    (input)="nome = $event.target.value"
+              >
+
+              <input type="text"
+                    [(ngModel)]="nome">
+
+              <br>
+              <input type="text"
+                    [(ngModel)]="pessoa.nome">
+              <input type="text"
+                    [(ngModel)]="pessoa.idade">
+
+              <p>helou : {{ nome }}</p>
+
+        </div>
+      </article>
+</section>
