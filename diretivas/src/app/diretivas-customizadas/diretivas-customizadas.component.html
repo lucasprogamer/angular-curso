@@ -1,4 +1,4 @@
-<p FundoAmarelo>
+<!-- <p FundoAmarelo>
   AMARELOU
 </p>
 
@@ -10,4 +10,22 @@
 
 <p [highlight]="'red'" [defaltColor]="'grey'" >
   texto com hightlight
-</p>
+</p> -->
+
+<div class="col-md-12 mb-5">
+
+  <div class="alert alert-success" *ngIf="mostrarCursos">
+    Lista de cursos aqui.
+  </div>
+
+  <div class="alert alert-danger" *ngElse="mostrarCursos">
+    <div>Nenhum curso encontrado</div>
+  </div>
+
+  <button (click)="onMostrarCursos()" class="btn btn-primary"> Mostrar cursos</button>
+
+</div>
+
+
+
+

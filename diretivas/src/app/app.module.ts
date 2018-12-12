@@ -13,6 +13,8 @@ import { FundoAmareloDirective } from './shared/fundo-amarelo.directive';
 import { DiretivasCustomizadasComponent } from './diretivas-customizadas/diretivas-customizadas.component';
 import { HighlightDirectiveDirective } from './shared/highlight-directive.directive';
 import { HighlightDirective } from './shared/highlight.directive';
+import { NgElseDirective } from './shared/ng-else.directive';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { HighlightDirective } from './shared/highlight.directive';
     FundoAmareloDirective,
     DiretivasCustomizadasComponent,
     HighlightDirectiveDirective,
-    HighlightDirective
+    HighlightDirective,
+    NgElseDirective
   ],
   imports: [
     BrowserModule,
