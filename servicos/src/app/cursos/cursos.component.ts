@@ -1,27 +1,29 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { CursosService } from './cursos.service';
 
 @Component({
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
-  styleUrls: ['./cursos.component.sass']
+  styleUrls: ['./cursos.component.css'],
+  providers: [CursosService]
 })
 export class CursosComponent implements OnInit {
 
+  cursos: string[] = [];
+  //cursosService: CursosService;
 
-  cursos: string[];
-
-  constructor(private cursosService: CursosService) {
-
-      this.cursos = this.cursosService.getCursos();
-
-   }
-
-  ngOnInit() {
+  constructor(private cursosService: CursosService) { 
+    //this.cursosService = new CursosService();
+    //this.cursosService = _cursosService;
   }
 
-  addCurso() {
-    this.cursos;
+  ngOnInit() {
+    this.cursos = this.cursosService.getCursos();
+
+    CursosService.criouNovoCurso.subscribe(
+      curso => this.cursos.push(curso)
+    );
   }
 
 }
