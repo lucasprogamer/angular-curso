@@ -1,0 +1,15 @@
+<h3 class="title">Lista de Alunos</h3>
+<div class="columns">
+  <div class="column">
+      <div class="list is-hoverable">
+          <a class="list-item" *ngFor="let aluno of alunos" [routerLink]="[aluno.id]" >
+              {{ aluno.nome }}
+          </a>
+      </div>
+  </div>
+  <div class="column">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
