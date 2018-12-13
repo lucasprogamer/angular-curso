@@ -27,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bulma/bulma.sass",
-              "src/styles.scss"
+              "src/assets/sass/main.scss"
             ],
             "scripts": []
           },
@@ -84,7 +83,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/assets/sass/main.scss"
             ],
             "scripts": [],
             "assets": [
