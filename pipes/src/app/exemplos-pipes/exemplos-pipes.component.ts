@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// tslint:disable-next-line:import-blacklist
+import { interval } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-exemplos-pipes',
@@ -7,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exemplos-pipes.component.css']
 })
 export class ExemplosPipesComponent implements OnInit {
+
+
+  constructor() { }
 
   livro: any = {
     titulo: 'Learning JavaScript Data Structures and Algorithms 2nd ed',
@@ -21,9 +27,17 @@ export class ExemplosPipesComponent implements OnInit {
 
   filtro: string;
 
+  valorAsync = new Promise((resolve) => {
+    setTimeout( () => resolve('Valor Assíncrono'), 2000);
+  });
 
+  valorAsync2 =  interval(2000).pipe(
+    map(valor => 'Valor Assíncrono 2')
+  );
 
-  constructor() { }
+  addCurso(valor) {
+    this.livros.push(valor);
+  }
 
   ngOnInit() {
   }

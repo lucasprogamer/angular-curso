@@ -27,12 +27,12 @@ import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
       provide: LOCALE_ID,
       useValue: 'pt-BR'
     }*/
-    SettingsService,
-    {
-      provide: LOCALE_ID,
-      deps: [SettingsService],
-      useFactory: ptbrLocale
-    }
+    // SettingsService,
+    // {
+    //   provide: LOCALE_ID,
+    //   deps: [SettingsService],
+    //   useFactory: ptbrLocale
+    // }
   ],
   bootstrap: [AppComponent]
 })

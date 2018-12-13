@@ -6,6 +6,7 @@ import { FiltroArrayPipe } from './filtro-array.pipe';
   name: 'filtroArrayImpuro',
   pure: false
 })
+
 export class FiltroArrayImpuroPipe extends FiltroArrayPipe {
 
 }
