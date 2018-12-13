@@ -8,17 +8,14 @@
       </div>
     </div>
     <div class="navbar-end">
-
-        <a routerLink="/login" class="navbar-item" >login</a>
-
-        <a  routerLink="/cursos" class="navbar-item" >cursos</a>
-    </div>
-  </nav>
-</header>
-<section class="section">
+        <a routerLink="/login" routerLinkActive="is-active"  class="navbar-item" >login</a>
+        <a  routerLink="/cursos" routerLinkActive="is-active" [queryParams]="{pagina:1}" class="navbar-item" >cursos</a>
+      </div>
+    </nav>
+  </header>
+  <section class="section">
 
   <div class="container">
     <router-outlet></router-outlet>
   </div>
-
 </section>
