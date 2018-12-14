@@ -1,3 +1,39 @@
-<p>
-  aluno-form works!
-</p>
+<h3 class="subtitle">Criar / Editar Alunos</h3>
+
+<div class="field">
+  <label class="label">#</label>
+  <div class="control has-icons-left">
+    <input disabled [(ngModel)]="aluno.id" class="input" type="text">
+    <span class="icon is-small is-left">
+      <i class="fas fa-id-card-alt"></i>
+    </span>
+</div>
+
+<div class="field">
+  <label class="label">Nome</label>
+  <div class="control has-icons-left">
+    <input class="input" [(ngModel)]="aluno.nome" type="text" placeholder="Nome do aluno">
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control has-icons-left">
+    <input class="input" [(ngModel)]="aluno.email" type="email" placeholder="email@exemplo.com">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field is-grouped is-pulled-right">
+  <div class="control">
+      <button [routerLink]="'/alunos'" class="button is-danger">Cancelar</button>
+  </div>
+  <div class="control">
+    <button class="button is-link">Salvar</button>
+  </div>
+</div>

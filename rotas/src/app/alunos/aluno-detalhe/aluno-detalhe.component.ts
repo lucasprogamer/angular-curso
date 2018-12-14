@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AlunosService } from '../alunos.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { query } from '@angular/core/src/render3';
+
 
 @Component({
   selector: 'app-aluno-detalhe',
@@ -21,17 +21,25 @@ export class AlunoDetalheComponent implements OnInit, OnDestroy {
     private router: Router
   ) { }
 
+  editarContato() {
+    this.router.navigate(['/alunos', this.aluno.id, 'editar']);
+  }
+
   ngOnInit() {
     this.alunos = this.alunosService.getAlunos();
-    this.route.queryParams.subscribe(
+    this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
         this.aluno = this.alunosService.getAluno(id);
+
       }
     );
   }
   ngOnDestroy() {
+  if (this.inscricao) {
     this.inscricao.unsubscribe();
+    }
+
   }
 
 }

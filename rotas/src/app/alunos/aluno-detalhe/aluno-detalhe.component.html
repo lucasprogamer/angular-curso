@@ -1,1 +1,18 @@
-{{ aluno.nome }} || {{ aluno.email }}
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      {{ aluno.nome }}
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+       <p>  ID: {{ aluno.id }}</p>
+      E-mail:<a href="mailto:{{ aluno.email }}">{{ aluno.email }}</a>
+      <br>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a (click)="editarContato()" class="card-footer-item is-link">Edit</a>
+    <a [routerLink]="'/alunos'" class="card-footer-item is-danger">Cancelar</a>
+  </footer>
+</div>

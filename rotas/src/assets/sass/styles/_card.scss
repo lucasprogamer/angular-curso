@@ -1,0 +1,57 @@
+
+
+.card-footer {
+
+  .card-footer-item{
+    &.is-danger {
+      background-color: $danger;
+      color: $white;
+      &:hover {
+        &:hover{
+          background-color: darken($danger, 5);
+          color: $white-ter;
+        }
+      }
+    }
+    &.is-info {
+      background-color: $info;
+      color: $white;
+      &:hover{
+        background-color: darken($info, 5);
+        color: $white-ter;
+      }
+    }
+    &.is-success {
+      background-color: $success;
+      color: $white;
+      &:hover{
+        background-color: darken($success, 5);
+        color: $white-ter;
+      }
+    }
+    &.is-primary {
+      background-color: $primary;
+      color: $white;
+      &:hover{
+        background-color: darken($primary, 5);
+        color: $white-ter;
+      }
+    }
+    &.is-warning {
+      background-color: $warning;
+      color: $white;
+      &:hover{
+        background-color: darken($warning, 5);
+        color: $white-ter;
+      }
+    }
+    &.is-link {
+      background-color: $link;
+      color: $white;
+      &:hover{
+        background-color: darken($link, 5);
+        color: $white-ter;
+      }
+    }
+  }
+}
