@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit () {
     this.authService.mostrarMenuEmitter.subscribe(
-      mostrar => this.mostrarMenu = mostrar;
+      mostrar => this.mostrarMenu = mostrar
     );
   }
 }
