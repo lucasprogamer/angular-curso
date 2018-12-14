@@ -1,3 +1,39 @@
-<p>
-  login works!
-</p>
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-two-thirds">
+        <div class="card">
+            <div class="card-image">
+              <figure class="image is-128x128">
+                <img class="is-rounded" src="https://ryanacademy.ie/wp-content/uploads/2017/04/user-placeholder.png">
+              </figure>
+            </div>
+            <div class="card-content">
+                <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input" [(ngModel)]="usuario.nome" type="nome" placeholder="Email">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                      </span>
+                    </p>
+                  </div>
+                <div class="field">
+                  <p class="control has-icons-left">
+                    <input class="input" [(ngModel)]="usuario.senha" type="password" placeholder="Password">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                      <button (click)="fazerLogin()" class="button is-success is-medium">
+                        Login
+                      </button>
+                    </p>
+                  </div>
+            </div>
+          </div>
+
+    </div>
+  </div>
+</section>

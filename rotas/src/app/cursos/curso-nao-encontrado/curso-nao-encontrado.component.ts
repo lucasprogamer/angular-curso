@@ -10,6 +10,7 @@ export class CursoNaoEncontradoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
