@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AlunosService } from '../alunos.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Aluno } from '../aluno';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AlunoDetalheComponent implements OnInit, OnDestroy {
 
-  aluno: any;
+  aluno: Aluno;
   alunos: any[];
   inscricao: Subscription;
 
@@ -26,12 +27,9 @@ export class AlunoDetalheComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.alunos = this.alunosService.getAlunos();
-    this.route.params.subscribe(
-      (params: any) => {
-        const id = params['id'];
-        this.aluno = this.alunosService.getAluno(id);
-
+    this.inscricao = this.route.data.subscribe(
+      (data) => {
+        this.aluno = data.aluno;
       }
     );
   }
