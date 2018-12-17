@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CursosGuard } from './guards/cursos.guard';
 import { AlunosGuard } from './guards/alunos.guard.service';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 const routes: Routes = [
   { path: 'cursos', loadChildren: './cursos/cursos.module#CursosModule',
@@ -19,13 +20,18 @@ const routes: Routes = [
     canLoad: [AuthGuard],
   },
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomeComponent,
+  { path: 'home', component: HomeComponent,
     canActivate: [AuthGuard]
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full'
+  },
+  {
+    path: '**', component: PaginaNaoEncontradaComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
