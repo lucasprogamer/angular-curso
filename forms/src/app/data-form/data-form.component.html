@@ -1,3 +1,47 @@
-<p>
-  data-form works!
-</p>
+<section class="section data-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+
+      <div class="columns is-multiline">
+        <div class="column is-12">
+          <div class="field ">
+            <label class="label">Nome</label>
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <input required class="input nome" name="nome" type="text" placeholder="Bruce Wayne"
+                formControlName="nome"
+              >
+              <p  class="help is-danger">O campo nome é obrigatório!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-12">
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <input  required email class="input"type="email" name="email" placeholder="bruce@wayneenterprises.com"
+                formControlName="email"
+              >
+              <p class="help is-danger">Email inválido</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button type="submit" class="button is-link" >Enviar</button>
+        </div>
+        <div class="control">
+          <button type="reset" class="button is-text">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
