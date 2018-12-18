@@ -1,3 +1,124 @@
-<p>
-  template-form works!
-</p>
+<section class="section template-form">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <div class="columns is-multiline">
+      <div class="column is-12">
+        <div class="field ">
+          <label class="label">Nome</label>
+          <div class="control has-icons-left">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <input [(ngModel)]="usuario.nome" #nome="ngModel" required class="input nome" [ngClass]="setCssErrors(nome)"
+              name="nome" type="text" placeholder="Bruce Wayne">
+            <p *ngIf="checkHasErrors(nome)" class="help is-danger">O campo nome é obrigatório!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-12">
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <input #email="ngModel" [(ngModel)]="usuario.email" required email [ngClass]="setCssErrors(email)" class="input"
+              type="email" name="email" placeholder="bruce@wayneenterprises.com">
+            <p *ngIf="checkHasErrors(email)" class="help is-danger">Email inválido</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="columns is-multiline" ngModelGroup="endereco">
+      <div class="column is-3">
+
+        <div class="field">
+          <label class="label">CEP</label>
+          <div class="control">
+            <input class="input cep" type="text" name="cep" placeholder="05436-100"
+            #cep="ngModel" ngModel required [ngClass]="setCssErrors(cep)" (blur)="consultaCEP($event.target.value, f)"
+            >
+            <p *ngIf="checkHasErrors(cep)" class="help is-danger">CEP inválido</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="field">
+          <label class="label">Número</label>
+          <div class="control">
+            <input #numero="ngModel" ngModel class="input numero" type="text" name="numero"
+              placeholder="Nº, S/N">
+
+          </div>
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="field">
+          <label class="label">Complemento</label>
+          <div class="control">
+            <input #complemento="ngModel" ngModel class="input complemento" type="text" name="complemento"
+              placeholder="Nº, S/N">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column is-12">
+        <div class="field ">
+          <label class="label">Rua</label>
+          <div class="control ">
+            <input ngModel #rua="ngModel" readonly=required class="input rua" [ngClass]="setCssErrors(rua)"
+              name="rua" type="text" placeholder="Rua Gonçalo Afonso ">
+            <p *ngIf="checkHasErrors(rua)" class="help is-danger">O campo rua é obrigatório!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-6">
+        <div class="field ">
+          <label class="label">Bairro</label>
+          <div class="control ">
+            <input ngModel #bairro="ngModel" readonly=required class="input bairro" [ngClass]="setCssErrors(bairro)"
+              name="bairro" type="text" placeholder="Villa Madalena ">
+            <p *ngIf="checkHasErrors(bairro)" class="help is-danger">O campo rua é obrigatório!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-4">
+        <div class="field ">
+          <label class="label">Cidade</label>
+          <div class="control ">
+            <input ngModel #cidade="ngModel" readonly=required class="input cidade" [ngClass]="setCssErrors(cidade)"
+              name="cidade" type="text" placeholder="Gotham ">
+            <p *ngIf="checkHasErrors(cidade)" class="help is-danger">O campo cidade é obrigatório!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-2">
+        <div class="field ">
+          <label class="label">Estado</label>
+          <div class="control ">
+            <input ngModel #estado="ngModel" readonly=required class="input estado" [ngClass]="setCssErrors(estado)"
+              name="estado" type="text" placeholder="Nova Jersey ">
+            <p *ngIf="checkHasErrors(estado)" class="help is-danger">O campo estado é obrigatório!</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button type="submit" class="button is-link" [disabled]="!f.valid">Enviar</button>
+      </div>
+      <div class="control">
+        <button type="reset" class="button is-text">Cancelar</button>
+      </div>
+    </div>
+  </form>
+</section>
+<app-form-debug [form]="f"></app-form-debug>
