@@ -24,7 +24,7 @@ export class MovieProvider {
 
 
 
-  getLatestMovies(page) {
+  getLatestMovies(page = 1) {
     return this.http.get(`${ this.apiCredentials.basePath }/movie/popular?api_key=${this.apiCredentials.key}&language=${this.apiCredentials.lang}&page=${page}`);
   }
 

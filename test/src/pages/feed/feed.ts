@@ -26,7 +26,8 @@ export class FeedPage {
   loader;
   refresher;
   isRefreshing: boolean;
-  page:number;
+  page:number = 1;
+  infinityScroll;
 
 
   constructor(
@@ -68,7 +69,8 @@ export class FeedPage {
   doRefresh(refresher) {
     this.refresher = refresher;
     this.isRefreshing = true;
-    this.loadMovies();
+    this.page = 1;
+    this.loadMovies(false);
 
   }
 
@@ -83,20 +85,24 @@ export class FeedPage {
   /**
    * Carrega os filmes
    */
-  loadMovies(page){
+  loadMovies(newPage: boolean = false){
     this.presentLoading();
 
-    this.movieProvider.getLatestMovies(page).subscribe(
+    this.movieProvider.getLatestMovies(this.page).subscribe(
       data => {
         const response = (data as any);
 
-        this.movieList = response.results;
-        console.log(this.movieList)
+        if(newPage) {
+          this.movieList = this.movieList.concat(response.results);
+          this.infinityScroll.complete();
+        } else {
+          this.movieList = response.results;
+        }
+
         this.closeLoading();
         if (this.isRefreshing) {
           this.refresher.complete();
           this.isRefreshing = false;
-          this.page++;
         }
       },
       error => {
@@ -113,8 +119,8 @@ export class FeedPage {
 
 
   doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
-    this.loadMovies(this.page);
-    infiniteScroll.complete();
+    this.page++;
+    this.infinityScroll = infiniteScroll;
+    this.loadMovies(true);
   }
 }
