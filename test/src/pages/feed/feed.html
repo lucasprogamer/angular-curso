@@ -19,6 +19,48 @@
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
 
-    <card [movieList]="movieList"></card>
+      <div *ngFor="let movie of movieList">
+          <ion-card >
+              <ion-item>
+                <ion-avatar item-start>
+                  <img [src]="'https://image.tmdb.org/t/p/w500' + movie.backdrop_path">
+                </ion-avatar>
+                <h2>{{ movie.title }}</h2>
+                <p>{{ movie.release_date | date: 'dd/MM/yyyy' }}</p>
+              </ion-item>
 
+              <img [src]="'https://image.tmdb.org/t/p/w500' + movie.backdrop_path">
+
+              <ion-card-content>
+                {{ movie.overview | slice:0:200 }}
+              </ion-card-content>
+
+              <ion-row>
+                <ion-col>
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>{{ movie.vote_count }} Curtidas</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>4 Comments</div>
+                  </button>
+                </ion-col>
+                <ion-col center text-center>
+                  <ion-note>
+                    11h ago
+                  </ion-note>
+                </ion-col>
+              </ion-row>
+              <button ion-button block (click)="openDetails(movie)"> Detalhes</button>
+
+            </ion-card>
+
+      </div>
+
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
   </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
 
 /**
@@ -17,28 +17,54 @@ import { MovieProvider } from '../../providers/movie/movie';
 })
 export class DetailMoviePage {
 
-   movie:  {};
-
-  movieID;
+  movie:  {};
+  movieID: number;
+  loader: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public movieProvider: MovieProvider
-     ) {
+    public movieProvider: MovieProvider,
+    public loadingCtrl: LoadingController
+     ) {}
+
+  ionViewDidLoad() {
+    this.loadMovie();
   }
 
-  ionViewDidEnter(){
+    /**
+   * Inicia o loading
+   */
+  presentLoading() {
+    this.loader = this.loadingCtrl.create({
+       content: 'carregando',
+       spinner: 'crescent',
+    });
+    this.loader.present();
+
+  }
+
+    /**
+   * fecha o loading
+   */
+  closeLoading() {
+    this.loader.dismiss();
+  }
+
+   loadMovie() {
+    // this.presentLoading();
+
     this.movieID = this.navParams.get("id");
 
     this.movieProvider.getMovieDetails(this.movieID).subscribe(
-      data => {
-        this.movie = data;
+      async data => {
+         this.movie = data;
+        // this.closeLoading();
         console.log(this.movie);
-
-      },
-      error => {
-        console.log(error);
+        },
+        error => {
+          console.log(error);
+          this.closeLoading();
       }
     );
   }

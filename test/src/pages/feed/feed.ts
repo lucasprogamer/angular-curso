@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
+import { DetailMoviePage } from '../detail-movie/detail-movie';
 
 /**
  * Generated class for the FeedPage page.
@@ -21,9 +22,12 @@ import { MovieProvider } from '../../providers/movie/movie';
 export class FeedPage {
 
   movieList =   new Array<any>();
-  loader: any;
-  refresher: any;
+  movie;
+  loader;
+  refresher;
   isRefreshing: boolean;
+  page:number;
+
 
   constructor(
     public navCtrl: NavController,
@@ -68,23 +72,31 @@ export class FeedPage {
 
   }
 
+  /**
+   * Abre os detalhes do filme
+   * @param movie
+   */
+  openDetails(movie) {
+    this.navCtrl.push(DetailMoviePage, { id: movie.id });
+  }
 
   /**
    * Carrega os filmes
    */
-  loadMovies(){
+  loadMovies(page){
     this.presentLoading();
 
-    this.movieProvider.getLatestMovies().subscribe(
+    this.movieProvider.getLatestMovies(page).subscribe(
       data => {
         const response = (data as any);
 
         this.movieList = response.results;
-        console.log(this.movieList);
+        console.log(this.movieList)
         this.closeLoading();
         if (this.isRefreshing) {
           this.refresher.complete();
           this.isRefreshing = false;
+          this.page++;
         }
       },
       error => {
@@ -97,5 +109,12 @@ export class FeedPage {
       }
     );
 
+  }
+
+
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+    this.loadMovies(this.page);
+    infiniteScroll.complete();
   }
 }

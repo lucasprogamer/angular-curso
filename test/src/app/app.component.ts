@@ -29,7 +29,6 @@ export class MyApp {
 
       let config = configProvider.getConfigData();
 
-      console.log(config);
        if(config == null) {
          this.rootPage = IntroPage;
         configProvider.setConfigData(false);

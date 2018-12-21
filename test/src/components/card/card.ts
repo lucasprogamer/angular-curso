@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DetailMoviePage } from '../../pages/detail-movie/detail-movie';
 
 /**
  * Generated class for the CardComponent component.
@@ -15,17 +14,17 @@ import { DetailMoviePage } from '../../pages/detail-movie/detail-movie';
 export class CardComponent {
 
 
- @Input('movieList') movieList ;
+ @Input('movie') movie ;
 
 
   constructor(
     public navCtrl: NavController
   ) {
+    console.log(this.movie);
+
   }
 
-  openDetails(movie) {
-    this.navCtrl.push(DetailMoviePage, { id: movie.id });
-  }
+
 
 
 }

@@ -12,7 +12,6 @@ import { FeedPage } from '../pages/feed/feed';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { ComponentsModule } from '../components/components.module';
 import { IntroPage } from '../pages/intro/intro';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieProvider } from '../providers/movie/movie';
@@ -29,17 +28,16 @@ import { DetailMoviePageModule } from '../pages/detail-movie/detail-movie.module
     HomePage,
     FeedPage,
     IntroPage,
-    TabsPage
+    TabsPage,
   ],
   imports: [
     BrowserModule,
-    ComponentsModule,
-    IonicModule.forRoot(MyApp),
     HttpClientModule,
     ConfiguracoesPageModule,
     SobrePageModule,
     DetailMoviePageModule,
     PerfilPageModule,
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

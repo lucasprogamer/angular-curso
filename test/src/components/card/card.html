@@ -1,4 +1,4 @@
-<ion-card *ngFor="let movie of movieList">
+<ion-card >
   <ion-item>
     <ion-avatar item-start>
       <img [src]="'https://image.tmdb.org/t/p/w500' + movie.backdrop_path">
@@ -32,7 +32,5 @@
       </ion-note>
     </ion-col>
   </ion-row>
-
-  <button ion-button block (click)="openDetails(movie)"> Detalhes</button>
 
 </ion-card>

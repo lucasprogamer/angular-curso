@@ -24,8 +24,8 @@ export class MovieProvider {
 
 
 
-  getLatestMovies() {
-    return this.http.get(`${ this.apiCredentials.basePath }/movie/popular?api_key=${this.apiCredentials.key}&language=${this.apiCredentials.lang}`);
+  getLatestMovies(page) {
+    return this.http.get(`${ this.apiCredentials.basePath }/movie/popular?api_key=${this.apiCredentials.key}&language=${this.apiCredentials.lang}&page=${page}`);
   }
 
   getMovieDetails(id) {

@@ -5,22 +5,52 @@
   Ionic pages and navigation.
 -->
 
+
+
   <ion-header>
 
     <ion-navbar>
-      <ion-title></ion-title>
+      <ion-title  >{{ movie?.title }}</ion-title>
     </ion-navbar>
 
   </ion-header>
+  <ion-content *ngIf="movie" padding>
+      <ion-card >
+          <ion-item>
+            <ion-avatar item-start>
+              <img [src]="'https://image.tmdb.org/t/p/w500' + movie?.backdrop_path">
+            </ion-avatar>
+            <h2>{{ movie?.title }}</h2>
+            <p>{{ movie?.release_date | date: 'dd/MM/yyyy' }}</p>
+          </ion-item>
 
+          <img [src]="'https://image.tmdb.org/t/p/w500' + movie?.backdrop_path">
 
-  <ion-content padding>
+          <ion-card-content>
+            {{ movie?.overview | slice:0:200 }}
+          </ion-card-content>
 
-    <pre>
-      {{ movie | json }}
-    </pre>
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>{{ movie?.vote_count }} Curtidas</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>4 Comments</div>
+              </button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+                <a href="{{ movie.homepage }}">{{ movie.homepage }}</a>
+              </ion-note>
+            </ion-col>
+          </ion-row>
 
+        </ion-card>
 
   </ion-content>
-
 
