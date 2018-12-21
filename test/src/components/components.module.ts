@@ -1,8 +1,16 @@
 import { NgModule } from '@angular/core';
-import { FeedComponent } from './feed/feed';
+import { CardComponent } from './card/card';
+import { IonicModule } from 'ionic-angular';
+
 @NgModule({
-	declarations: [FeedComponent],
-	imports: [],
-	exports: [FeedComponent]
+	declarations: [
+    CardComponent
+  ],
+	imports: [
+    IonicModule
+  ],
+	exports: [
+    CardComponent
+  ]
 })
 export class ComponentsModule {}

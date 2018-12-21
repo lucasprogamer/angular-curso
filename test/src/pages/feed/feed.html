@@ -7,12 +7,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>feed</ion-title>
+    <ion-title>FEED</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+  <ion-content padding>
 
-</ion-content>
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
+    <card [movieList]="movieList"></card>
+
+  </ion-content>
